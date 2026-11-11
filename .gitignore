@@ -1,0 +1,38 @@
+# .NET build output
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+**/publish/
+**/artifacts/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Visual Studio and IDE files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.csproj.user
+*.vbproj.user
+*.rsuser
+
+# Local settings and secrets
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
