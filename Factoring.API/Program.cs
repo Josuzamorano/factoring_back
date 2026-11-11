@@ -74,7 +74,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "http://localhost:4200")
+        policy.WithOrigins(
+                "http://localhost:5173",
+                "http://localhost:4200",
+                "https://stirring-concha-b8028c.netlify.app")
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

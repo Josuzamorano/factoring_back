@@ -14,8 +14,12 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         // Conexión a base de datos
-        var connectionString = configuration.GetConnectionString("FactoringDb") 
-            ?? throw new InvalidOperationException("Connection string 'FactoringDb' not found.");
+        var connectionString = configuration.GetConnectionString("FactoringDb");
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new InvalidOperationException(
+                "Connection string 'FactoringDb' is required. Set it with the ConnectionStrings__FactoringDb environment variable or a secret provider.");
+        }
         
         services.AddSingleton<IDbConnectionFactory>(_ => new SqlConnectionFactory(connectionString));
         services.AddSingleton(sp => new SqlConnectionFactory(connectionString));
